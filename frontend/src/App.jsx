@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ClerkProviderWithRoutes } from "./auth/ClerkProviderWithRoutes.jsx";
 import { AuthenticationPage } from "./auth/AuthenticationPage.jsx";
-import { Route } from "react-router-dom";
+import ClerkProviderWithRoutes from "./auth/ClerkProviderWithRoutes.jsx";
+import { Route, Routes } from "react-router-dom";
 import { Layout } from "./layout/Layout.jsx";
 import { ChallengeGenerator } from "./challenge/ChallengeGenerator.jsx";
 import { MCQChallenge } from "./challenge/MCQChallenge.jsx";
@@ -12,9 +12,9 @@ function App() {
   return (
     <ClerkProviderWithRoutes>
       <Routes>
-        <Route path="/sign-in/*" element={AuthenticationPage()} />
-        <Route path="/sign-up" element={AuthenticationPage()} />
-        <Route element={<Layout/>}>
+        <Route path="/sign-in/*" element={<AuthenticationPage />} />
+        <Route path="/sign-up" element={<AuthenticationPage />} />
+        <Route element={<Layout />}>
           <Route path="/" element={<ChallengeGenerator />} />
           <Route path="/history" element={<HistoryPanel />} />
         </Route>
