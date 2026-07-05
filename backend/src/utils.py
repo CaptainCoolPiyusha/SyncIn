@@ -1,10 +1,10 @@
 from fastapi import HTTPException
 from clerk_backend_api import Clerk, AuthenticateRequestOptions
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).resolve().parent / ".env")
+load_dotenv()
+
 
 clerk_sdk = Clerk(bearer_auth=os.getenv("CLERK_SECRET_KEY"))
 
