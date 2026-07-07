@@ -21,7 +21,7 @@ export function MCQChallenge({ challenge, showExplanation = false }) {
   const getOptionClass = (index) => {
     if (selectedOption === null) return "option";
 
-    if (index == challenge.correct_answer_id) {
+    if (index === challenge.correct_answer_id) {
       return "option correct";
     }
     if (selectedOption === index && index !== challenge.correct_answer_id) {
@@ -29,6 +29,11 @@ export function MCQChallenge({ challenge, showExplanation = false }) {
     }
     return "option";
   };
+
+  useEffect(() => {
+    setSelectedOption(null);
+    setShouldShowExplanation(showExplanation);
+  }, [challenge, showExplanation]);
 
   return (
     <div className="challenge-display">
